@@ -4,7 +4,8 @@ import java.util.*;
 
 /*
  * @author: Abhilaksh
- * @version: UC4
+ * @version: UC5
+ * 
  * 
  */
 
@@ -16,27 +17,18 @@ public class Main {
 		System.out.println("====================================");
 		System.out.println("");
 		
-
-		
-		List<String> trainConsist = new LinkedList<>();
+		Set<String> trainConsist = new LinkedHashSet<>();
 		
 		
+		// Preserving the insertion order of the additions.
 		trainConsist.add("Engine");
-		trainConsist.add("Sleeper");
-		trainConsist.add("AC");
-		trainConsist.add("Cargo");
-		trainConsist.add("Gaurd");
+		trainConsist.add("Sleeper Car");
+		trainConsist.add("AC Tier");
+		trainConsist.add("Cargo Bogie");
+		trainConsist.add("Engine");
 		
-		System.out.println("Initial Train Consist:\n" + trainConsist + "\n");
+		System.out.println("Train Consist:\n" + trainConsist + "\n");
 		
-		// Adding Pantry car at position 2:
-		trainConsist.add(2, "Pantry Car");
-		System.out.println("Pantry Car is added at second position:\n" + trainConsist +"\n");
-		
-		// The Remove first and remove last operation is perfornmed.
-		trainConsist.removeFirst();
-		trainConsist.removeLast();
-		System.out.println("After Removing Fist And Last Bogie:\n" + trainConsist + "\n");
 
 	}
 
