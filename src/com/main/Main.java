@@ -4,7 +4,7 @@ import java.util.*;
 
 /*
  * @author: Abhilaksh
- * @version: UC5
+ * @version: UC6
  * 
  * 
  */
@@ -17,19 +17,18 @@ public class Main {
 		System.out.println("====================================");
 		System.out.println("");
 		
-		Set<String> trainConsist = new LinkedHashSet<>();
+		Map<String,Integer> capacityMap = new HashMap<>();
 		
+		capacityMap.put("First Class", 24);
+		capacityMap.put("Cargo", 120);
+		capacityMap.put("Sleeper Car", 72);
+		capacityMap.put("AC Tier", 56);
 		
-		// Preserving the insertion order of the additions.
-		trainConsist.add("Engine");
-		trainConsist.add("Sleeper Car");
-		trainConsist.add("AC Tier");
-		trainConsist.add("Cargo Bogie");
-		trainConsist.add("Engine");
+		System.out.println("The Bogie Capacity Details:");
 		
-		System.out.println("Train Consist:\n" + trainConsist + "\n");
-		
-
+		for(String key : capacityMap.keySet()) {
+			System.out.println(key + " -> " + capacityMap.get(key));
+		}
 	}
 
 }
