@@ -4,7 +4,7 @@ import java.util.*;
 
 /*
  * @author: Abhilaksh
- * @version: UC3
+ * @version: UC4
  * 
  */
 
@@ -14,23 +14,30 @@ public class Main {
 		System.out.println("====================================");
 		System.out.println("====Train Consist Management App====");
 		System.out.println("====================================");
+		System.out.println("");
 		
-		Set<String> trainConsist = new HashSet<>();
-		
-		// Adding the Bogie Ids:
 
-		trainConsist.add("BG101");
-		trainConsist.add("BG102");
-		trainConsist.add("BG103");
-		trainConsist.add("BG104");
 		
-		// Adding the Duplicates here:
+		List<String> trainConsist = new LinkedList<>();
 		
-		trainConsist.add("BG101");
-		trainConsist.add("BG102");
 		
-		// No matter how many times you add, Set will always contain the unique elements here.
-		System.out.println("Passenger Bogies: " + trainConsist);
+		trainConsist.add("Engine");
+		trainConsist.add("Sleeper");
+		trainConsist.add("AC");
+		trainConsist.add("Cargo");
+		trainConsist.add("Gaurd");
+		
+		System.out.println("Initial Train Consist:\n" + trainConsist + "\n");
+		
+		// Adding Pantry car at position 2:
+		trainConsist.add(2, "Pantry Car");
+		System.out.println("Pantry Car is added at second position:\n" + trainConsist +"\n");
+		
+		// The Remove first and remove last operation is perfornmed.
+		trainConsist.removeFirst();
+		trainConsist.removeLast();
+		System.out.println("After Removing Fist And Last Bogie:\n" + trainConsist + "\n");
+
 	}
 
 }
