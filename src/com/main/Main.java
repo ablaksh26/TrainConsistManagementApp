@@ -1,11 +1,15 @@
 package com.main;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import com.bogie.Bogie;
 
+
 /*
+ * 
+ * 
  * @author: Abhilaksh
- * @version: UC7
+ * @version: UC8
  * 
  * 
  */
@@ -13,6 +17,7 @@ import com.bogie.Bogie;
 public class Main {
 
 	public static void main(String[] args) {
+		
 		System.out.println("====================================");
 		System.out.println("====Train Consist Management App====");
 		System.out.println("====================================");
@@ -25,16 +30,16 @@ public class Main {
 		bogies.add(new Bogie("First Class",24));
 		bogies.add(new Bogie("General",90));
 		
-		System.out.println("Before sorting:");
+		System.out.println("All Bogies:");
 		
 		for(Bogie b : bogies) {
 			System.out.println(b.name + " -> " + b.capacity);
 		}
 		
-		Collections.sort(bogies, Comparator.comparingInt(b -> b.capacity));
+		bogies = bogies.stream().filter(bogie -> bogie.capacity > 60).collect(Collectors.toList());
 		
 		System.out.println();
-		System.out.println("After sorting:");
+		System.out.println("Filtered Bogies > 60:");
 
 		for(Bogie b : bogies) {
 			System.out.println(b.name + " -> " + b.capacity);
