@@ -4,7 +4,7 @@ import java.util.*;
 
 /*
  * @author: Abhilaksh
- * @version: UC2
+ * @version: UC3
  * 
  */
 
@@ -15,28 +15,22 @@ public class Main {
 		System.out.println("====Train Consist Management App====");
 		System.out.println("====================================");
 		
-		List<String> trainConsist = new ArrayList<>();
+		Set<String> trainConsist = new HashSet<>();
 		
-		trainConsist.add("Sleeper");
-		trainConsist.add("AC Chair");
-		trainConsist.add("First Class");
-		
-		System.out.println("After adding Bogies: ");
-		System.out.println("Passenger Bogies: " + trainConsist);
-		System.out.println();
-		
-		System.out.println("After removing AC Chair: ");
-		trainConsist.remove("AC Chair");
-		System.out.println("Passenger Bogies: " + trainConsist);
-		System.out.println();
-		
-		System.out.println("Checking if Sleeper exist?");
-		System.out.print("Contains Sleeper: ");
-		System.out.println(trainConsist.contains("Sleeper"));
-		System.out.println();
-		
-		System.out.println("Final Train Passenger Consist: " + trainConsist);
+		// Adding the Bogie Ids:
 
+		trainConsist.add("BG101");
+		trainConsist.add("BG102");
+		trainConsist.add("BG103");
+		trainConsist.add("BG104");
+		
+		// Adding the Duplicates here:
+		
+		trainConsist.add("BG101");
+		trainConsist.add("BG102");
+		
+		// No matter how many times you add, Set will always contain the unique elements here.
+		System.out.println("Passenger Bogies: " + trainConsist);
 	}
 
 }
