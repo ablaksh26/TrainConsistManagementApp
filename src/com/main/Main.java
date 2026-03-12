@@ -10,7 +10,7 @@ import com.bogie.CargoBogie;
  *
  * 		 
  * @author: Abhilaksh
- * @version: UC14
+ * @version: UC15
  * 
  * 
  */
@@ -22,25 +22,18 @@ public class Main {
 		System.out.println("===Train Consist Management App===");
 		System.out.println("==================================");
 		System.out.println();
-		
 
-		try{
+		CargoBogie c1 = new CargoBogie("Cylindrical");	
+		c1.assignCargo("Petroleum");
+		System.out.println();
 
-			Bogie b1 = new Bogie("Sleeper",72);	
-			System.out.println("Created Bogie: " + b1.name + " -> " + b1.capacity);
-			
-			Bogie b2 = new Bogie("Sleeper",0);	
-			System.out.println("Created Bogie: " + b2.name + " -> " + b2.capacity);
-			
-		}catch(InvalidCapacityException e) {
-			System.out.println("Error: " + e.getMessage());
-		}
-		
-		
+		CargoBogie c2 = new CargoBogie("Rectanguler");	
+		c2.assignCargo("Petroleum");
+
 	}
 	
-	public static class InvalidCapacityException extends Exception{
-		public InvalidCapacityException(String message){
+	public static class CargoSafetyException extends RuntimeException{
+		public CargoSafetyException(String message){
 			super(message);
 		}
 	}
