@@ -1,17 +1,18 @@
 package com.main;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-import com.bogie.CargoBogie;
+import com.bogie.Bogie;
+
 
 /*
  *
  * 		 
  * @author: Abhilaksh
- * @version: UC12
+ * @version: UC13
  * 
  * 
- *
  */
 
 public class Main {
@@ -22,32 +23,29 @@ public class Main {
 		System.out.println("==================================");
 		System.out.println();
 		
-		List<CargoBogie> cargoBogie = new ArrayList<>();
-		
-		cargoBogie.add(new CargoBogie("Cylindrical","Petroleum"));
-		cargoBogie.add(new CargoBogie("Open","Coal"));
-		cargoBogie.add(new CargoBogie("Box","Grain"));
-		cargoBogie.add(new CargoBogie("Cylindrical","Coal"));
-		
-		System.out.println("Goods Bogies in Train: ");
-		for(CargoBogie b : cargoBogie) {
-			System.out.println(b.type + " -> " + b.cargo);
-		}
-		System.out.println();
-		
-		boolean isSafe = cargoBogie.stream().allMatch(bogie -> validateBogie(bogie));
-		
-		System.out.println("Safety Compliance Status: " + isSafe);
-		
-		if(isSafe) System.out.println("Train formation is SAFE");
-		else System.out.println("Train formation is NOT SAFE");
+		List<Bogie> bogies = new ArrayList<>();
 
+		bogies.add(new Bogie("Sleeper",72));
+		bogies.add(new Bogie("AC Chair",56));
+		bogies.add(new Bogie("First Class",24));
+		bogies.add(new Bogie("General",90));
+
+		long startTime1 = System.nanoTime();
+		List<Bogie> list1 = bogies.stream().filter(bogie -> bogie.capacity > 60).collect(Collectors.toList());
+		long endTime1 = System.nanoTime();
+		
+		List<Bogie> list2 = new ArrayList<>();
+		long startTime2 = System.nanoTime();
+		for(Bogie bogie : bogies) {
+			if(bogie.capacity > 60) {
+				list2.add(bogie);
+			}
+		}
+		long endTime2 = System.nanoTime();
+		
+		
+		System.out.println("Stream Execution Time(ns): " + (endTime1-startTime1));
+		System.out.println("Loop Execution Time(ns): " + (endTime2-startTime2));
 	}
-	public static boolean validateBogie(CargoBogie b) {
-        if ("cylindrical".equalsIgnoreCase(b.type)) {
-            return "Petroleum".equalsIgnoreCase(b.cargo);
-        }
-        return true;
-    }
 
 }
