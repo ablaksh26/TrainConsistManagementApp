@@ -4,11 +4,14 @@ package com.main;
 
 /*
  *
+ * 		 
  * @author: Abhilaksh
- * @version: UC18
+ * @version: UC19
+ * 
  * 
  * 
  */
+
 
 public class Main {
 
@@ -26,7 +29,23 @@ public class Main {
 		String searchID = "BG103";
 		boolean found = false;
 		
-		for(String s : bogies) if(s.equals(searchID)) { found = true; break;}
+		int left = 0;
+        int right = bogies.length - 1;
+
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            int cmp = searchID.compareTo(bogies[mid]);
+
+            if (cmp == 0) {
+                found = true;
+                break;
+            } else if (cmp > 0) {
+                left = mid + 1; 
+            } else {
+                right = mid - 1; 
+            }
+        }
 		System.out.println();
 		
 		if(found) System.out.println("Bogie " + searchID + " found in train consist");
