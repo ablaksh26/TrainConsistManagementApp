@@ -1,13 +1,12 @@
 package com.main;
 
+import java.util.*;
 
 
 /*
  *
- * 		 
  * @author: Abhilaksh
- * @version: UC16
- * 
+ * @version: UC17
  * 
  * 
  */
@@ -20,24 +19,14 @@ public class Main {
 		System.out.println("==================================");
 		System.out.println();
 
-		int[] capacities = {72,78,69,81};
-		System.out.println("Original capacities:");
-		for(int c : capacities) System.out.print(c + " ");
-		System.out.println("\n");
+		String[] capacities = {"Sleeper","AC Chair","First Class","General","Luxury"};
 		
-		for (int i = 0; i < capacities.length - 1; i++) {
-            boolean swapped = false;
-            for (int j = 0; j < capacities.length - i - 1; j++) {
-                if (capacities[j] > capacities[j + 1]) {
-                    int temp = capacities[j];
-                    capacities[j] = capacities[j + 1];
-                    capacities[j + 1] = temp;
-                    swapped = true;
-                }
-            }
-            if (!swapped) break;
-        }
-		System.out.println("Sorted capacities: ");
-		for(int c : capacities) System.out.print(c + " ");
+		System.out.println("Original Bogies:");
+		System.out.print(Arrays.toString(capacities) + "\n\n");
+		
+		Arrays.sort(capacities);
+		
+		System.out.println("Sorted Bogies: ");
+		System.out.print(Arrays.toString(capacities));
 	}
 }
