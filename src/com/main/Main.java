@@ -1,12 +1,11 @@
 package com.main;
 
-import java.util.*;
 
 
 /*
  *
  * @author: Abhilaksh
- * @version: UC17
+ * @version: UC18
  * 
  * 
  */
@@ -19,14 +18,18 @@ public class Main {
 		System.out.println("==================================");
 		System.out.println();
 
-		String[] capacities = {"Sleeper","AC Chair","First Class","General","Luxury"};
+		String[] bogies = {"BG101","BG102","BG103","BG104","BG105"};
 		
-		System.out.println("Original Bogies:");
-		System.out.print(Arrays.toString(capacities) + "\n\n");
+		System.out.println("Available Bogie IDs:");
+		for(String s : bogies) System.out.println(s);
 		
-		Arrays.sort(capacities);
+		String searchID = "BG103";
+		boolean found = false;
 		
-		System.out.println("Sorted Bogies: ");
-		System.out.print(Arrays.toString(capacities));
+		for(String s : bogies) if(s.equals(searchID)) { found = true; break;}
+		System.out.println();
+		
+		if(found) System.out.println("Bogie " + searchID + " found in train consist");
+		else System.out.println("Bogie " + searchID + " not found in train consist");
 	}
 }
